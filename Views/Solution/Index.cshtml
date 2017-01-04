@@ -1,0 +1,164 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section navbar{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb" style="padding-left:0px;padding-bottom:5px;margin-bottom:5px;">
+                    <li><a href="/">首页</a></li>
+                    <li class="active">行业方案</li>
+                </ol>
+                <hr style="border-top:3px solid #D70000;margin-top:0px;" />
+            </div>
+        </div>
+    </div>
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1><strong>行业方案</strong></h1>
+        </div>
+        <div class="col-md-6 text-right">
+            <h1>
+                <a href="other/index.htm" class="btn btn-sm btn-danger"><strong>其它行业</strong></a>
+                <a href="index.htm" class="btn btn-sm btn-danger"><strong>所有案例</strong></a>
+            </h1>
+        </div>
+    </div>
+    <div class="row" style="margin-left:0px;margin-right:0px;border-top:2px dotted #dcdcdc;">
+        <div class="col-md-12">
+            &nbsp;
+        </div>
+    </div>
+    <div class="row emptyhome">
+        <a href="factory/index.htm" class="all">
+            <div class="col-sm-4 col-md-4 def-lg-7 col-xs-6 solution-list-left solution-list-factory">
+                <h3 class="text-center solution-title">智慧工厂</h3>
+            </div>
+        </a>
+        <a href="logistics/index.htm" class="all">
+            <div class="col-sm-4 col-md-4 def-lg-7 col-xs-6 solution-list-middle solution-list-logistics">
+                <h3 class="text-center solution-title">物流自动化</h3>
+            </div>
+        </a>
+        <a href="pack/index.htm" class="all">
+            <div class="col-sm-4 col-md-4 def-lg-7 col-xs-6 solution-list-middle solution-list-pack">
+                <h3 class="text-center solution-title">印刷包装</h3>
+            </div>
+        </a>
+        <a href="armarium/index.htm" class="all">
+            <div class="col-sm-4 col-md-4 def-lg-7 col-xs-6 solution-list-middle solution-list-armarium">
+                <h3 class="text-center solution-title">医药行业</h3>
+            </div>
+        </a>
+        <a href="ccc/index.htm" class="all">
+            <div class="col-sm-4 col-md-4 def-lg-7 col-xs-6 solution-list-middle solution-list-3c">
+                <h3 class="text-center solution-title">3C行业</h3>
+            </div>
+        </a>
+        <a href="energy/index.htm" class="all">
+            <div class="col-sm-4 col-md-4 def-lg-7 col-xs-6 solution-list-middle solution-list-energy">
+                <h3 class="text-center solution-title">新能源行业</h3>
+            </div>
+        </a>
+        <a href="auto/index.htm" class="all">
+            <div class="col-sm-4 col-md-4 def-lg-7 col-xs-6 solution-list-right solution-list-auto">
+                <h3 class="text-center solution-title">汽车行业</h3>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            &nbsp;
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover" style="table-layout:fixed;" data-model="viewModel">
+                    <thead>
+                        <tr class="table-head-th">
+                            <th style="width:25%">方案名称</th>
+                            <th style="width:50%;border-left:2px solid #ffffff;border-right:2px solid #ffffff;">方案概述</th>
+                            <th style="width:25%">相关产品</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach:lstSolution">
+                        <tr>
+                            <td class="hy-body-text">
+                                <i class=" icon-angle-right icon-large colorred"></i>
+                                <a href="/solution/detail" class="colorblack" data-bind="text:title,attr:{href:'/solution/detail/'+aid}"></a>
+                            </td>
+                            <td class="hy-body-text" data-bind="text:content"></td>
+                            <td class="hy-body-text">
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-xs-12 text-right">
+            <ul class="pagination"></ul>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="/Scripts/pager.js"></script>
+    <script>
+        function ViewModel(config) {
+            var self = this;
+            //初始化整个界面用到的api地址
+            var urlSolution = "/api/Article/GetArticleList";
+            self.lstSolution = ko.observableArray([]);
+
+            self.GetSolutionList = function (curPage) {
+                $.ajax({
+                    url: urlSolution + "?d=" + new Date(),
+                    type: "post",
+                    async: true,
+                    data: { pageSize: 10, pageIndex: curPage, articleType: 5 },
+                    beforeSend: function () {
+                    },
+                    success: function (d) {
+                        self.lstSolution.removeAll();
+                        for (var i = 0; i < d.List.length; i++) {
+                            self.lstSolution.push(d.List[i]);
+                        }
+                        self.setPager(d.Total, curPage);
+                    }
+                });
+            }
+
+            self.setPager = function (total,curPage) {
+                $('.pagination').bsPagination({
+                    totalRecord: total,
+                    recordPerPage: 10,
+                    currentPage: curPage,
+                    setLinkAttr: function (page) {
+                        return 'href="javascript:vm.GetSolutionList('+page+')"'
+                    }
+                }); 
+            }
+            self.GetSolutionList(1);
+        }
+        
+        var vm = null;
+        $(function () {
+            vm = new ViewModel(null);
+            ko.attach("viewModel", vm);
+        });
+    </script>
+}

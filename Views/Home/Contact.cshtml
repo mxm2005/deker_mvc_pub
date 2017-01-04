@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid carousel-background">
+    <div class="row">
+        <a class="carousel-control left carousel-arrow" style="top: 230px;" href="#carousel-home" role="button" data-slide="prev">
+            <i class="icon-angle-left icon-circle-arrow-left icon-3x colorgray" style="padding-left: 70%;"></i>
+            <span class="sr-only">Previous</span>
+        </a>
+        <div class="container">
+            <div id="carousel-home" class="carousel slide"  data-model="viewModel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators" style="display:none;">
+                    <li data-target="#carousel-home" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-home" data-slide-to="1"></li>
+                    <li data-target="#carousel-home" data-slide-to="2"></li>
+                    <li data-target="#carousel-home" data-slide-to="3"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item" data-bind="foreach:lstBanner">
+                        <img data-bind="attr:{ src:img,alt:key}" />
+                    </div>
+                </div>
+            </div>
+            <!-- Controls -->
+            <a class="right carousel-control carousel-arrow" style="top: 230px;" href="#carousel-home" role="button" data-slide="next">
+                <i class="icon-angle-right icon-circle-arrow-right icon-3x colorgray" style="padding-left: 20%;"></i>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+    <script>
+        function ViewModel(config) {
+            var self = this;
+            //初始化整个界面用到的api地址
+            var urlBanner = "/api/values/getBanners";
+            self.lstBanner = ko.observableArray([]);
+
+            self.GetBannerList = function () {
+                $.ajax({
+                    url: urlBanner + "?d=" + new Date(),
+                    type: "get",
+                    async: true,
+                    data: {},
+                    beforeSend: function () {
+                    },
+                    success: function (d) {
+                        for (var i = 0; i < d.length; i++) {
+                            self.lstBanner.push(d[i]);
+                        }
+                    }
+                });
+            }
+            self.GetBannerList();
+        }
+        $(function () {
+            var viewModel = new ViewModel(null);
+            ko.attach("viewModel", viewModel);
+        });
+    </script>
+}

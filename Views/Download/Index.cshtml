@@ -1,0 +1,281 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section navbar{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb" style="padding-left:0px;padding-bottom:5px;margin-bottom:5px;">
+                    <li><a href="/">首页</a></li>
+                    <li class="active">资料下载</li>
+                </ol>
+                <hr style="border-top:3px solid #D70000;margin-top:0px;" />
+            </div>
+        </div>
+    </div>
+}
+<!--
+@*<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1><strong>资料下载</strong></h1>
+        </div>
+    </div>
+    <div class="row" style="margin-left:0px;margin-right:0px;border-top:2px dotted #dcdcdc;">
+        <div class="col-md-12">
+            &nbsp;
+        </div>
+    </div>
+
+    <div class="row" style="margin-left:0px;margin-right:0px;">
+        <div class="col-sm-home-1 col-md-home-1 col-lg-home-1 col-xs-6 empty" style="border-right:10px solid #ffffff;">
+            <div class="download-head text-center dropdown  active ">
+                <a href="#" id="linksoftware" class="activewhite colorgray dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                    <h3 class="download-head-text"><i class="icon-download icon-large activewhite colorgray"></i> 软件</h3>
+                </a>
+                <ul class="dropdown-menu popover bottom" role="menu" aria-labelledby="linksoftware" style="width:100%;margin-top:0px;">
+                    <li class="arrow"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="index.htm"><span class="colorgray2">❶</span> 全部</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../hmi/index.htm"><span class="colorgray2">❷</span> 人机界面</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../hmi/program/index.htm"><span class="colorgray2">❷-❶</span> 人机界面-编程软件</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../hmi/com/index.htm"><span class="colorgray2">❷-❷</span> 人机界面-通信实例</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../hmi/sample/index.htm"><span class="colorgray2">❷-❸</span> 人机界面-例子程序</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../plc/index.htm"><span class="colorgray2">❸</span> PLC</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../plc/program/index.htm"><span class="colorgray2">❸-❶</span> PLC-编程软件</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../plc/com/index.htm"><span class="colorgray2">❸-❷</span> PLC-通信实例</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../plc/sample/index.htm"><span class="colorgray2">❸-❸</span> PLC-例子程序</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../servo/index.htm"><span class="colorgray2">❹</span> 伺服驱动器/电机</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../stepper/index.htm"><span class="colorgray2">❺</span> 步进驱动器/电机</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../vdf/index.htm"><span class="colorgray2">❻</span> 变频器</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../smartfactory/index.htm"><span class="colorgray2">❼</span> 智慧工厂</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../other/index.htm"><span class="colorgray2">❽</span> 其它</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-home-1 col-md-home-1 col-lg-home-1 col-xs-6 empty" style="border-left:10px solid #ffffff;border-right:10px solid #ffffff;">
+            <div class="download-head text-center dropdown ">
+                <a href="#" id="linkmodel" class="activewhite colorgray dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                    <h3 class="download-head-text"><i class="icon-download icon-large activewhite colorgray"></i> 选型手册</h3>
+                </a>
+                <ul class="dropdown-menu popover bottom" role="menu" aria-labelledby="linkmodel" style="width:100%;margin-top:0px;">
+                    <li class="arrow"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../model/all/index.htm"><span class="colorgray2">❶</span> 全部</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../model/hmi/index.htm"><span class="colorgray2">❷</span> 人机界面</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../model/plc/index.htm"><span class="colorgray2">❸</span> PLC</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../model/servo/index.htm"><span class="colorgray2">❹</span> 伺服驱动器/电机</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../model/stepper/index.htm"><span class="colorgray2">❺</span> 步进驱动器/电机</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../model/vdf/index.htm"><span class="colorgray2">❻</span> 变频器</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../model/smartfactory/index.htm"><span class="colorgray2">❼</span> 智慧工厂</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../model/other/index.htm"><span class="colorgray2">❽</span> 其它</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-home-1 col-md-home-1 col-lg-home-1 col-xs-6 empty" style="border-left:10px solid #ffffff;border-right:10px solid #ffffff;">
+            <div class="download-head text-center dropdown ">
+                <a href="#" id="linkmanual" class="activewhite colorgray dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <h3 class="download-head-text"><i class="icon-download icon-large activewhite colorgray"></i> 使用手册</h3>
+                </a>
+                <ul class="dropdown-menu popover bottom" role="menu" aria-labelledby="linkmanual" style="width:100%;margin-top:0px;">
+                    <li class="arrow"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../use/all/index.htm"><span class="colorgray2">❶</span> 全部</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../use/hmi/index.htm"><span class="colorgray2">❷</span> 人机界面</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../use/plc/index.htm"><span class="colorgray2">❸</span> PLC</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../use/servo/index.htm"><span class="colorgray2">❹</span> 伺服驱动器/电机</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../use/stepper/index.htm"><span class="colorgray2">❺</span> 步进驱动器/电机</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../use/vdf/index.htm"><span class="colorgray2">❻</span> 变频器</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../use/smartfactory/index.htm"><span class="colorgray2">❼</span> 智慧工厂</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../use/other/index.htm"><span class="colorgray2">❽</span> 其它</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-home-1 col-md-home-1 col-lg-home-1 col-xs-6 empty" style="border-left:10px solid #ffffff;border-right:10px solid #ffffff;">
+            <div class="download-head text-center dropdown ">
+                <a href="#" id="linkcad" class="activewhite colorgray dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                    <h3 class="download-head-text"><i class="icon-download icon-large activewhite colorgray"></i> CAD/3D图纸</h3>
+                </a>
+                <ul class="dropdown-menu popover bottom" role="menu" aria-labelledby="linkcad" style="width:100%;margin-top:0px;">
+                    <li class="arrow"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../cad/all/index.htm"><span class="colorgray2">❶</span> 全部</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../cad/hmi/index.htm"><span class="colorgray2">❷</span> 人机界面</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../cad/plc/index.htm"><span class="colorgray2">❸</span> PLC</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../cad/servo/index.htm"><span class="colorgray2">❹</span> 伺服驱动器/电机</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../cad/stepper/index.htm"><span class="colorgray2">❺</span> 步进驱动器/电机</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../cad/vdf/index.htm"><span class="colorgray2">❻</span> 变频器</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../cad/smartfactory/index.htm"><span class="colorgray2">❼</span> 智慧工厂</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../cad/other/index.htm"><span class="colorgray2">❽</span> 其它</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-home-1 col-md-home-1 col-lg-home-1 col-xs-6 empty" style="border-left:10px solid #ffffff;">
+            <div class="download-head text-center dropdown ">
+                <a href="#" id="linkqualification" class="activewhite colorgray dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                    <h3 class="download-head-text"><i class="icon-download icon-large activewhite colorgray"></i> 资质认证</h3>
+                </a>
+                <ul class="dropdown-menu popover bottom" role="menu" aria-labelledby="linkqualification" style="width:100%;margin-top:0px;">
+                    <li class="arrow"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../accredit/all/index.htm"><span class="colorgray2">❶</span> 全部</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../accredit/hmi/index.htm"><span class="colorgray2">❷</span> 人机界面</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../accredit/plc/index.htm"><span class="colorgray2">❸</span> PLC</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../accredit/servo/index.htm"><span class="colorgray2">❹</span> 伺服驱动器/电机</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../accredit/stepper/index.htm"><span class="colorgray2">❺</span> 步进驱动器/电机</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../accredit/vdf/index.htm"><span class="colorgray2">❻</span> 变频器</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../accredit/smartfactory/index.htm"><span class="colorgray2">❼</span> 智慧工厂</a></li>
+                    <li class="divider" style="padding:0px;margin:0px;"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../../accredit/other/index.htm"><span class="colorgray2">❽</span> 其它</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>*@
+-->
+
+<div class="container">
+    <div class="row empty" style="border-bottom:2px dotted #dcdcdc;">
+        <div class="col-md-12">
+            &nbsp;
+        </div>
+    </div>
+    <div class="row empty">
+        <div class="col-md-3 empty">
+            <h3 class="colorred"><strong>资料</strong><small> > 全部</small></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            &nbsp;
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover" style="table-layout:fixed;" data-model="viewModel">
+                    <thead>
+                        <tr class="table-head-th2">
+                            <th style="width:100px">名称</th>
+                            <th></th>
+                            <th style="width:50%;" class="download-table-border">描述</th>
+                            <th style="width:10%" class="text-center">点击下载</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach:lstDownload">
+                        <tr>
+                            <td class="download-table-body" style="vertical-align:middle;width:100px;"><img data-bind="attr:{src:'/Content/uploads/img/'+picture,alt:name}" style="height:60px" /></td>
+                            <td class="" style="vertical-align:middle;"><i class=" icon-angle-right icon-large colorred"></i><span data-bind="text:name"></span></td>
+                            <td class="download-table-body" style="vertical-align:middle;" data-bind="text:remark">                                
+                            </td>
+                            <td class="download-table-body text-center" style="vertical-align:middle;">
+                                <a data-bind="attr:{href:'/Content/uploads/download/'+path}" style="font-size:24px;" class="colorgray activered" target="_blank">
+                                    <strong><span class="glyphicon glyphicon-download" aria-hidden="true"></span></strong>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-xs-12 text-right">
+            <ul class="pagination">
+            </ul>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="/Scripts/pager.js"></script>
+    <script>
+        function ViewModel(config) {
+            var self = this;
+            //初始化整个界面用到的api地址
+            var urlDownload = "/api/Down/GetList";
+            self.lstDownload = ko.observableArray([]);
+
+            self.GetDownloadList = function (curPage) {
+                $.ajax({
+                    url: urlDownload + "?d=" + new Date(),
+                    type: "post",
+                    async: true,
+                    data: { pageSize: 10, pageIndex: curPage },
+                    beforeSend: function () {
+                    },
+                    success: function (d) {
+                        self.lstDownload.removeAll();
+                        for (var i = 0; i < d.List.length; i++) {
+                            self.lstDownload.push(d.List[i]);
+                        }
+                        self.setPager(d.Total, curPage);
+                    }
+                });
+            }
+
+            self.setPager = function (total, curPage) {
+                $('.pagination').bsPagination({
+                    totalRecord: total,
+                    recordPerPage: 10,
+                    currentPage: curPage,
+                    setLinkAttr: function (page) {
+                        return 'href="javascript:vm.GetDownloadList(' + page + ')"'
+                    }
+                });
+            }
+
+            self.fixImg = function (pic) {
+                if (pic && pic != '') {
+                    return '/Content/uploads/img/' + pic;
+                } esle
+                {
+                    return '/images/nopic.jpg';
+                }
+            }
+
+            self.GetDownloadList(1);
+        }
+
+        var vm = null;
+        $(function () {
+            vm = new ViewModel(null);
+            ko.attach("viewModel", vm);
+        });
+    </script>
+}
